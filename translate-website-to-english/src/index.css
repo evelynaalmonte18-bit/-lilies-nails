@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Fraunces:opsz,wght@9..144,400;9..144,500&display=swap");
+
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Fraunces", Georgia, serif;
+  --font-sans: "DM Sans", Arial, sans-serif;
+  --font-mono: "DM Mono", monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  font-family: var(--font-sans);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.hero-image {
+  animation: hero-enter 1.25s cubic-bezier(.2, .65, .25, 1) both;
+}
+
+.hero-copy {
+  animation: copy-enter .85s .18s cubic-bezier(.2, .65, .25, 1) both;
+}
+
+.section-label {
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .19em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: #9c7571;
+}
+
+.scroll-line {
+  transform-origin: left;
+  animation: scroll-pulse 2.2s ease-in-out infinite;
+}
+
+.lily-drift {
+  animation: lily-drift 5.5s ease-in-out infinite alternate;
+}
+
+.form-field {
+  display: block;
+  padding-top: 1.6rem;
+}
+
+.form-field > span {
+  display: block;
+  margin-bottom: .65rem;
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: rgb(255 250 244 / .62);
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  display: block;
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid rgb(255 250 244 / .3);
+  border-radius: 0;
+  background: transparent;
+  padding: 0 0 .7rem;
+  color: #fffaf4;
+  outline: none;
+  transition: border-color .2s ease;
+}
+
+.form-field textarea {
+  resize: vertical;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-color: #f3d7d0;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: rgb(255 250 244 / .35);
+}
+
+.form-field select:invalid {
+  color: rgb(255 250 244 / .35);
+}
+
+.form-field option {
+  color: #292323;
+}
+
+.booking-reveal {
+  animation: copy-enter .45s ease-out both;
+}
+
+@keyframes hero-enter {
+  from { transform: scale(1.05); opacity: .55; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes copy-enter {
+  from { transform: translateY(18px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes scroll-pulse {
+  0%, 100% { transform: scaleX(.55); opacity: .5; }
+  50% { transform: scaleX(1); opacity: 1; }
+}
+
+@keyframes lily-drift {
+  from { transform: translateY(8px) rotate(-3deg); }
+  to { transform: translateY(-8px) rotate(3deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
